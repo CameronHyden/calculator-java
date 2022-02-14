@@ -2,18 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: poppins, sans-serif;
 }
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    // screen style and layout
+    // sizing for overall calculator
     .calculator__container{
     width: 300px;
     height: 500px;
     background-color: black;  
     border-radius: 5%; 
-    
+    // screen style and layout
         .screen__container{
             display: flex;
             justify-content: flex-end;
@@ -35,15 +36,16 @@ body{
                 color: red;
                 gap: 4%;
                 height: 320px;
+                padding: 0 10px;
                 h2{
                     text-align: center;
                     margin-top: 10px;
                 }
                 .btn{
-                    border-top-left-radius: 25px;
-                    border-top-right-radius: 25px;
-                    border-bottom-left-radius: 25px;
-                    border-bottom-right-radius: 25px;
+                    border-top-left-radius: 30px;
+                    border-top-right-radius: 30px;
+                    border-bottom-left-radius: 30px;
+                    border-bottom-right-radius: 30px;
                 }
                 .clear__button{
                     background-color: #afafaf ;

@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.calculator__container {
+  display: flex;
+  justify-content: center;
+}
+.calculator__container .calculator__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: red;
+  gap: 1;
+}
+.calculator__container .calculator__buttons .zero__button {
+  color: blue;
+  grid-column: 1/3;
+}

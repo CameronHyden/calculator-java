@@ -4,36 +4,76 @@
   box-sizing: border-box;
 }
 
-.screen__container {
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body .calculator__container {
+  width: 60%;
+  height: 60%;
+  background-color: black;
+}
+body .calculator__container .screen__container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   border: 2px solid silver;
   height: 150px;
+  width: 100%;
 }
-.screen__container .screen__output {
+body .calculator__container .screen__container #screen__output {
   display: grid;
   grid-template-columns: 1fr;
 }
-
-.calculator__container {
+body .calculator__container .button__container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
-.calculator__container .calculator__buttons {
+body .calculator__container .button__container .calculator__buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   color: red;
   gap: 4%;
   text-align: center;
+  height: 320px;
 }
-.calculator__container .calculator__buttons .btn {
-  background-color: grey;
+body .calculator__container .button__container .calculator__buttons .btn {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-.calculator__container .calculator__buttons .zero__button {
+body .calculator__container .button__container .calculator__buttons .clear__button {
+  background-color: #afafaf;
+}
+body .calculator__container .button__container .calculator__buttons .plusAndMinus__button {
+  background-color: #afafaf;
+}
+body .calculator__container .button__container .calculator__buttons .percentage__button {
+  background-color: #afafaf;
+}
+body .calculator__container .button__container .calculator__buttons .divide__button {
+  background-color: #d6793a;
+}
+body .calculator__container .button__container .calculator__buttons .number__button {
+  background-color: #4d4845;
+}
+body .calculator__container .button__container .calculator__buttons .times__button {
+  background-color: #d6793a;
+}
+body .calculator__container .button__container .calculator__buttons .minus__button {
+  background-color: #d6793a;
+}
+body .calculator__container .button__container .calculator__buttons .plus__button {
+  background-color: #d6793a;
+}
+body .calculator__container .button__container .calculator__buttons .equals__button {
+  background-color: #d6793a;
+}
+body .calculator__container .button__container .calculator__buttons .zero__button {
   color: blue;
   grid-column: 1/3;
+  background-color: #4d4845;
 }

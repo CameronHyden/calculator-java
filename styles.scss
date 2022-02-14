@@ -3,37 +3,78 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     // screen style and layout
-    .screen__container{
-        display: flex;
-        justify-content: center;
-        border: 2px solid silver;
-        height: 150px;
-        .screen__output{
-        display: grid;
-        grid-template-columns: 1fr;
-        }
-    }
     .calculator__container{
-        display: flex;
-        justify-content: center;
-    // button layout and styles
-        .calculator__buttons{
+    width: 60%;
+    height: 60%;
+    background-color: black;
+        .screen__container{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            border: 2px solid silver;
+            height: 150px;
+            width: 100%;
+            #screen__output{
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            color: red;
-            gap: 4%;
-            text-align: center;
-            .btn{
-                background-color: grey;
-                border-top-left-radius: 25px;
-                border-top-right-radius: 25px;
-                border-bottom-left-radius: 25px;
-                border-bottom-right-radius: 25px;
-            }
-            .zero__button{
-                color: blue;
-                grid-column: 1/3
+            grid-template-columns: 1fr;
             }
         }
+        .button__container{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        // button layout and styles
+            .calculator__buttons{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                color: red;
+                gap: 4%;
+                text-align: center;
+                height: 320px;
+                .btn{
+                    border-top-left-radius: 25px;
+                    border-top-right-radius: 25px;
+                    border-bottom-left-radius: 25px;
+                    border-bottom-right-radius: 25px;
+                }
+                .clear__button{
+                    background-color: #afafaf ;
+                }
+                .plusAndMinus__button{
+                    background-color: #afafaf ;
+                }
+                .percentage__button{
+                    background-color: #afafaf ;
+                }
+                .divide__button{
+                    background-color: #d6793a ;
+                }
+                .number__button{
+                    background-color: #4d4845 ;
+                }
+                .times__button{
+                    background-color: #d6793a ;
+                }
+                .minus__button{
+                    background-color: #d6793a ;
+                }
+                .plus__button{
+                    background-color: #d6793a ;
+                }
+                .equals__button{
+                    background-color: #d6793a ;
+                }
+                .zero__button{
+                    color: blue;
+                    grid-column: 1/3;
+                    background-color: #4d4845 ;
+                }
+            }
+        }   
     }
+}    

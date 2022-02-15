@@ -52,8 +52,7 @@ body .calculator__container .button__container .calculator__buttons .btn {
 }
 body .calculator__container .button__container .calculator__buttons button {
   background-color: transparent;
-  padding: 0;
-  border: none;
+  padding: 10px;
 }
 body .calculator__container .button__container .calculator__buttons .clear__button {
   background-color: #afafaf;

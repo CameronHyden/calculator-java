@@ -5,80 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"/>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
   </head>
   <body>
-      
     <div class="calculator__container">
-        <div class="screen__container">
-          <div id="screen__output">
-            <h2 id="screen-text"></h2>
+      <div class="screen__container">
+        <div id="screen__output">
+          <input type="text" class="screen-text" value="" disabled>
+          <h2 id="screen-text"></h2>
+        </div>
+      </div>
+
+      <div class="button__container">
+        <div class="calculator__buttons">
+          <div class="calculator__button btn--clear">
+            <button class="clear">AC</button>
+          </div>
+          <div class="calculator__button btn--plusAndMinus">
+            <button class="operator">+/-</button>
+          </div>
+          <div class="calculator__button btn--percentage">
+            <button class="operator">%</button>
+          </div>
+          <div class="calculator__button btn--divide">
+            <button class="operator">÷</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">7</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">8</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">9</button>
+          </div>
+          <div class="calculator__button btn--times">
+            <button class="operator">x</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">4</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">5</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">6</button>
+          </div>
+          <div class="calculator__button btn--minus">
+            <button class="operator">-</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">1</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">2</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="number">3</button>
+          </div>
+          <div class="calculator__button btn--plus">
+            <button class="operator">+</button>
+          </div>
+          <div class="calculator__button btn--zero">
+            <button class="number">0</button>
+          </div>
+          <div class="calculator__button btn--number">
+            <button class="decimal">.</button>
+          </div>
+          <div class="calculator__button btn--equals">
+            <button class="operator">=</button>
           </div>
         </div>
-        
-        <div class="button__container">
-          <div class="calculator__buttons">
-            <div class="clear__button btn">
-              <button>AC</button>
-            </div>
-            <div class="button plusAndMinus__button btn">
-              <button>+/-</button>
-            </div>
-            <div class="button percentage__button btn">
-              <button>%</button>
-            </div>
-            <div class="button divide__button btn">
-              <button>÷</button> 
-            </div>
-            <div class="button number__button btn">
-              <button>7</button>
-            </div>
-            <div class="button number__button btn">
-              <button>8</button>
-            </div>
-            <div class="button number__button btn">
-              <button>9</button>
-            </div>
-            <div class="button times__button btn">
-              <button>x</button>
-            </div>
-            <div class="button number__button btn">
-             <button>4</button>
-            </div>
-            <div class="button number__button btn">
-              <button>5</button>
-            </div>
-            <div class="button number__button btn">
-              <button>6</button>
-            </div>
-            <div class="button minus__button btn">
-             <button>-</button>
-            </div>
-            <div class="button number__button btn">
-              <button>1</button>
-            </div>
-            <div class="button number__button btn">
-              <button>2</button>
-            </div>
-            <div class="button number__button btn">
-            <button>3</button>
-            </div>
-            <div class="button plus__button btn">
-             <button>+</button>
-            </div>
-            <div class="button zero__button btn">
-              <button>0</button>
-            </div>
-            <div class="button number__button btn">
-              <button>.</button>
-            </div>
-            <div class="button equals__button btn">
-              <button>=</button>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,49 +1,62 @@
-const display = document.querySelector(".screen-text");
+
+// global variables
 const buttons = document.querySelector(".calculator__buttons");
+const screenText = document.querySelector("#screen-text");
 
+// stored calculator data 
 const calculator = {
-    "outputValue": 0,
-    "firstSum": null,
-    "operator":null,
-    "waitingForSecondSum": false,
-
+  outputValue: 0,
+  firstSum: "",
+  secondSum:0,
+  operator: null,
+  waitingForSecondSum: false,
+  reset: (" "),
 };
 
-// the value of my input field is now whatever the outPutValue is
-const updateScreen = (value) => {
-  display.value = calculator.outputValue;
-}
+// functions
+const AddNumberToScreen = (event) => {
+  screenText.innerHTML = calculator.firstSum;
+};
 
+// need to update so it only adds decimal once
+const AddDecimalToScreen = (event) => {
+  if(calculator.firstSum !== "."){
+    screenText.innerHTML = calculator.firstSum;
+    }
+  }
 
-const AddNumberToScreen = (event) =>{
-    calculator.outputValue = display
-    
-
+const ClearScreen = (event) => {
+  screenText.innerHTML = calculator.reset;
 }
 
 const checkButton = (event) => {
-    const value = event.target;
+  const value = event.target;
 
- if (!value.matches('button')) {
-      return;
-     }
- 
-  if (value.classList.contains('operator')) {
-    console.log('operator', value.innerText);
+  if (!value.matches("button")) {
     return;
-      }
+  }
 
-  if (value.classList.contains('decimal')) {
-    console.log('decimal', value.innerText);
+  if (value.classList.contains("operator")) {
+    console.log("operator", value.innerText);
     return;
-      }
-  if (value.classList.contains('clear')) {
-    console.log('clear', value.innerText);
+  }
+
+  if (value.classList.contains("decimal")) {
+    const decimal = event.target.innerText;
+        calculator.firstSum += decimal;
+        AddDecimalToScreen();
     return;
-      }
-      console.log("number", value.innerText);
-//       updateScreen(value.innerText);
-//       AddNumberToScreen();
-    }
-    
+  
+  }
+  if (value.classList.contains("clear")) {
+    ClearScreen();
+    return;
+  }
+  console.log("number", value.innerText);
+        const number =event.target.innerText;
+        calculator.firstSum += number;
+        AddNumberToScreen();
+};
+
+// logic
 buttons.addEventListener("click", checkButton);

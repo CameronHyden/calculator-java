@@ -1,16 +1,15 @@
-
 // global variables
 const buttons = document.querySelector(".calculator__buttons");
 const screenText = document.querySelector("#screen-text");
 
-// stored calculator data 
+// stored calculator data
 const calculator = {
   outputValue: 0,
   firstSum: "",
-  secondSum:0,
+  secondSum: 0,
   operator: null,
   waitingForSecondSum: false,
-  reset: (" "),
+  reset: "",
 };
 
 // functions
@@ -20,14 +19,20 @@ const AddNumberToScreen = (event) => {
 
 // need to update so it only adds decimal once
 const AddDecimalToScreen = (event) => {
-  if(calculator.firstSum !== "."){
+  if (calculator.firstSum !== ".") {
     screenText.innerHTML = calculator.firstSum;
-    }
   }
+};
 
-const ClearScreen = (event) => {
-  screenText.innerHTML = calculator.reset;
+const handleOperator =(operator) => {
+  if ( calculator.operator === "+"){
+    console.log("i am a plus");
+  }
 }
+const ClearScreen = (event) => {
+  screenText.innerHTML = "";
+  calculator.firstSum = "";
+};
 
 const checkButton = (event) => {
   const value = event.target;
@@ -37,25 +42,26 @@ const checkButton = (event) => {
   }
 
   if (value.classList.contains("operator")) {
-    console.log("operator", value.innerText);
+    const operator = event.target.innerText;
+    calculator.operator = operator
+    handleOperator()
     return;
   }
 
   if (value.classList.contains("decimal")) {
     const decimal = event.target.innerText;
-        calculator.firstSum += decimal;
-        AddDecimalToScreen();
+    calculator.firstSum += decimal;
+    AddDecimalToScreen();
     return;
-  
   }
   if (value.classList.contains("clear")) {
     ClearScreen();
     return;
   }
   console.log("number", value.innerText);
-        const number =event.target.innerText;
-        calculator.firstSum += number;
-        AddNumberToScreen();
+  const number = event.target.innerText;
+  calculator.firstSum += number;
+  AddNumberToScreen();
 };
 
 // logic

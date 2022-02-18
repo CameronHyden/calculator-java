@@ -1,15 +1,15 @@
 // global variables
 const buttons = document.querySelector(".calculator__buttons");
 const screenText = document.querySelector("#screen-text");
+const equalsButton = document.querySelector('#equals')
+
 
 // stored calculator data
 const calculator = {
-  outputValue: 0,
+  outputValue: "",
   firstSum: "",
-  secondSum: 0,
+  secondSum: "",
   operator: null,
-  waitingForSecondSum: false,
-  reset: "",
 };
 
 // functions
@@ -24,15 +24,20 @@ const AddDecimalToScreen = (event) => {
   }
 };
 
-const handleOperator =(operator) => {
-  if ( calculator.operator === "+"){
-    console.log("i am a plus");
-  }
-}
+// clears screen and resets firstSum and secondSum
 const ClearScreen = (event) => {
   screenText.innerHTML = "";
   calculator.firstSum = "";
+  calculator.secondSum = "";
 };
+// needs to check what operator has been clicked and perform function
+const calculate = (event) => {
+  if (calculator.operator === "+"){
+  console.log(calculator.secondSum + calculator.firstSum) ;
+  }
+};
+
+
 
 const checkButton = (event) => {
   const value = event.target;
@@ -43,8 +48,10 @@ const checkButton = (event) => {
 
   if (value.classList.contains("operator")) {
     const operator = event.target.innerText;
-    calculator.operator = operator
-    handleOperator()
+    calculator.operator = operator;
+    calculator.secondSum = calculator.firstSum;
+    calculator.firstSum = "";
+    console.log(operator, calculator.firstSum, calculator.secondSum );
     return;
   }
 
@@ -58,7 +65,7 @@ const checkButton = (event) => {
     ClearScreen();
     return;
   }
-  console.log("number", value.innerText);
+  console.log(value.innerText);
   const number = event.target.innerText;
   calculator.firstSum += number;
   AddNumberToScreen();
@@ -66,3 +73,4 @@ const checkButton = (event) => {
 
 // logic
 buttons.addEventListener("click", checkButton);
+equalsButton.addEventListener("click", calculate)

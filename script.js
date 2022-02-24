@@ -1,8 +1,7 @@
 // global variables
 const buttons = document.querySelector(".calculator__buttons");
 const screenText = document.querySelector("#screen-text");
-const equalsButton = document.querySelector('#equals')
-
+const equalsButton = document.querySelector("#equals");
 
 // stored calculator data
 const calculator = {
@@ -30,14 +29,38 @@ const ClearScreen = (event) => {
   calculator.firstSum = "";
   calculator.secondSum = "";
 };
-// needs to check what operator has been clicked and perform function
+// new variables to turn the first and second sum into floating point numbers
+// switch case to check if any of the operators have been pressed, perform calculation if so.
+
+// maybe loop this??
 const calculate = (event) => {
-  if (calculator.operator === "+"){
-  console.log(calculator.secondSum + calculator.firstSum) ;
+  let calculation;
+  const prev = parseFloat(calculator.firstSum);
+  const current = parseFloat(calculator.secondSum);
+  switch (calculator.operator) {
+    case "+":
+      calculation = current + prev;
+      break;
+
+    case "-":
+      calculation = current - prev;
+      break;
+
+    case "x":
+      calculation = current * prev;
+      break;
+
+    case "÷":
+      calculation = current / prev;
+      break;
+      
+      default:
+      return
   }
+  screenText.innerHTML = calculation;
+  calculator.operator = null;
+  calculator.secondSum = ""
 };
-
-
 
 const checkButton = (event) => {
   const value = event.target;
@@ -51,7 +74,7 @@ const checkButton = (event) => {
     calculator.operator = operator;
     calculator.secondSum = calculator.firstSum;
     calculator.firstSum = "";
-    console.log(operator, calculator.firstSum, calculator.secondSum );
+    console.log(operator, calculator.firstSum, calculator.secondSum);
     return;
   }
 
@@ -73,4 +96,4 @@ const checkButton = (event) => {
 
 // logic
 buttons.addEventListener("click", checkButton);
-equalsButton.addEventListener("click", calculate)
+equalsButton.addEventListener("click", calculate);

@@ -2,7 +2,7 @@
 const buttons = document.querySelector(".calculator__buttons");
 const screenText = document.querySelector("#screen-text");
 const equalsButton = document.querySelector("#equals");
-
+const decimalButton = document.querySelector(".decimal");
 // stored calculator data
 const calculator = {
   outputValue: "",
@@ -12,22 +12,31 @@ const calculator = {
 };
 
 // functions
-const AddNumberToScreen = (event) => {
+const addNumberToScreen = (event) => {
   screenText.innerHTML = calculator.firstSum;
 };
 
 // need to update so it only adds decimal once
-const AddDecimalToScreen = (event) => {
+const addDecimalToScreen = (event) => {
   if (calculator.firstSum !== ".") {
     screenText.innerHTML = calculator.firstSum;
+    
   }
 };
+
+const stopExtraDecimal = (event) => {
+  if(screenText.innerHTML == "."){
+    console.log("hello")
+  }
+}
+stopExtraDecimal()
 
 // clears screen and resets firstSum and secondSum
 const ClearScreen = (event) => {
   screenText.innerHTML = "";
   calculator.firstSum = "";
   calculator.secondSum = "";
+  calculator.decimalClicked = false;
 };
 // new variables to turn the first and second sum into floating point numbers
 // switch case to check if any of the operators have been pressed, perform calculation if so.
@@ -74,24 +83,22 @@ const checkButton = (event) => {
     calculator.operator = operator;
     calculator.secondSum = calculator.firstSum;
     calculator.firstSum = "";
-    console.log(operator, calculator.firstSum, calculator.secondSum);
     return;
   }
 
   if (value.classList.contains("decimal")) {
     const decimal = event.target.innerText;
     calculator.firstSum += decimal;
-    AddDecimalToScreen();
+    addDecimalToScreen();
     return;
   }
   if (value.classList.contains("clear")) {
     ClearScreen();
     return;
   }
-  console.log(value.innerText);
   const number = event.target.innerText;
   calculator.firstSum += number;
-  AddNumberToScreen();
+  addNumberToScreen();
 };
 
 // logic

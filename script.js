@@ -10,26 +10,15 @@ const calculator = {
   secondSum: "",
   operator: null,
 };
+screenText.innerHTML = calculator.firstSum 
 
 // functions
 const addNumberToScreen = (event) => {
   screenText.innerHTML = calculator.firstSum;
 };
 
-// need to update so it only adds decimal once
-const addDecimalToScreen = (event) => {
-  if (calculator.firstSum !== ".") {
-    screenText.innerHTML = calculator.firstSum;
-    
-  }
-};
 
-const stopExtraDecimal = (event) => {
-  if(screenText.innerHTML == "."){
-    console.log("hello")
-  }
-}
-stopExtraDecimal()
+
 
 // clears screen and resets firstSum and secondSum
 const ClearScreen = (event) => {
@@ -41,7 +30,7 @@ const ClearScreen = (event) => {
 // new variables to turn the first and second sum into floating point numbers
 // switch case to check if any of the operators have been pressed, perform calculation if so.
 
-// maybe loop this??
+
 const calculate = (event) => {
   let calculation;
   const prev = parseFloat(calculator.firstSum);
@@ -87,17 +76,19 @@ const checkButton = (event) => {
   }
 
   if (value.classList.contains("decimal")) {
-    const decimal = event.target.innerText;
-    calculator.firstSum += decimal;
-    addDecimalToScreen();
+    if(!calculator.firstSum.includes(".")){
+      calculator.firstSum += event.target.innerText;
+      addNumberToScreen()
+    }
+
     return;
   }
   if (value.classList.contains("clear")) {
     ClearScreen();
     return;
   }
-  const number = event.target.innerText;
-  calculator.firstSum += number;
+
+  calculator.firstSum += event.target.innerText;
   addNumberToScreen();
 };
 

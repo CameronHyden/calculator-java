@@ -1,0 +1,24 @@
+{
+  "name": "calculator-java",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CameronHyden/calculator-java.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CameronHyden/calculator-java/issues"
+  },
+  "homepage": "https://github.com/CameronHyden/calculator-java#readme",
+  "devDependencies": {
+    "cypress": "^9.5.0"
+  }
+}
